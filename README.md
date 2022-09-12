@@ -1,12 +1,10 @@
 # LIFELINE
 Lifeline merupakan aplikasi yang digunakan untuk menyelesaikan masalah mahasiswa yang kesulitan dalam mengatur dan mencatat jadwal mereka.
 
-<br>
-##<b>Kelompok LineLife</b>
+### Kelompok LineLife
 <br>Ketua Kelompok: Daffa Muhammad Romero - 20/456363/TK/50493
 <br>Anggota 1: Wiweka Yoga Sadewa - 20/456382/TK/50512
 <br>Anggota 2: Muhammad Naufal Fadhlurrahman Suridireja - 20/456847/TK/50671
 
-<br>
 ### Class Diagram
-![Class Diagram_Updated](Class Diagram_Updated.png)
+![ClassDiagram]("Class Diagram_Updated.png")
