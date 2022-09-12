@@ -7,4 +7,4 @@ Lifeline merupakan aplikasi yang digunakan untuk menyelesaikan masalah mahasiswa
 <br>Anggota 2: Muhammad Naufal Fadhlurrahman Suridireja - 20/456847/TK/50671
 
 ### Class Diagram
-![ClassDiagram]("Class Diagram_Updated.png")
+![ClassDiagram](ClassDiagram.png)
