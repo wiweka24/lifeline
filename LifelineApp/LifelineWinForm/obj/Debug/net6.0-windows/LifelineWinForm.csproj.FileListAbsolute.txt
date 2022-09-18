@@ -33,3 +33,14 @@ C:\Users\daffa\Downloads\JUNPRO\LifelineApp\LifelineWinForm\obj\Debug\net6.0-win
 C:\Users\daffa\Downloads\JUNPRO\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.genruntimeconfig.cache
 C:\Users\daffa\Downloads\JUNPRO\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\ref\LifelineWinForm.dll
 C:\Users\daffa\Downloads\JUNPRO\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.Calendar.resources
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.csproj.AssemblyReference.cache
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.Calendar.resources
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.LoginForm.resources
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.csproj.GenerateResource.cache
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.GeneratedMSBuildEditorConfig.editorconfig
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.AssemblyInfoInputs.cache
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.AssemblyInfo.cs
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.csproj.CoreCompileInputs.cache
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.dll
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\refint\LifelineWinForm.dll
+D:\Semester 5\Kuliah\Junpro\PBO\App\Lifeline\LifelineApp\LifelineWinForm\obj\Debug\net6.0-windows\LifelineWinForm.pdb

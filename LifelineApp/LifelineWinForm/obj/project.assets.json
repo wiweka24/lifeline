@@ -8,19 +8,19 @@
     "net6.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\daffa\\.nuget\\packages\\": {}
+    "C:\\Users\\yogom\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\daffa\\Downloads\\JUNPRO\\Lifeline\\LifelineApp\\LifelineWinForm\\LifelineWinForm.csproj",
+      "projectUniqueName": "D:\\Semester 5\\Kuliah\\Junpro\\PBO\\App\\Lifeline\\LifelineApp\\LifelineWinForm\\LifelineWinForm.csproj",
       "projectName": "LifelineWinForm",
-      "projectPath": "C:\\Users\\daffa\\Downloads\\JUNPRO\\Lifeline\\LifelineApp\\LifelineWinForm\\LifelineWinForm.csproj",
-      "packagesPath": "C:\\Users\\daffa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\daffa\\Downloads\\JUNPRO\\Lifeline\\LifelineApp\\LifelineWinForm\\obj\\",
+      "projectPath": "D:\\Semester 5\\Kuliah\\Junpro\\PBO\\App\\Lifeline\\LifelineApp\\LifelineWinForm\\LifelineWinForm.csproj",
+      "packagesPath": "C:\\Users\\yogom\\.nuget\\packages\\",
+      "outputPath": "D:\\Semester 5\\Kuliah\\Junpro\\PBO\\App\\Lifeline\\LifelineApp\\LifelineWinForm\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\daffa\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yogom\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
