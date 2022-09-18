@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\daffa\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\daffa\\.nuget\\packages"
+      "C:\\Users\\yogom\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\yogom\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
