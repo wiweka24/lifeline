@@ -1,5 +1,5 @@
 ﻿
-namespace Lifeline
+namespace LifelineNewBuild
 {
     partial class Kalender
     {
