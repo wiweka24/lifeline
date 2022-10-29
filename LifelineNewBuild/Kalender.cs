@@ -1,14 +1,8 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using System.Configuration;
 using System.Windows.Forms;
 
 namespace LifelineNewBuild
@@ -24,7 +18,7 @@ namespace LifelineNewBuild
         public Kalender()
         {
             InitializeComponent();
-            var uriString = ConfigurationManager.AppSettings["postgres://szhlblek:O4cczwKuCRX3ta_f_n4K8KjTvvfeSFZW@satao.db.elephantsql.com/szhlblek"] ?? "postgres://postgres:7064@localhost/lifeline";
+            var uriString = "postgres://szhlblek:O4cczwKuCRX3ta_f_n4K8KjTvvfeSFZW@satao.db.elephantsql.com/szhlblek";
             var uri = new Uri(uriString);
             var db = uri.AbsolutePath.Trim('/');
             var user = uri.UserInfo.Split(':')[0];
@@ -43,8 +37,8 @@ namespace LifelineNewBuild
             NpgsqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
-                dt = new DataTable();
-                dt.Load(dr);
+                activity = new DataTable();
+                activity.Load(dr);
             }
             con.Dispose();
             con.Close();
@@ -129,7 +123,7 @@ namespace LifelineNewBuild
                 {
                     DateTime appDay = startDate;
                     LinkLabel link = new LinkLabel();
-                    link.Text = item[1].ToString();
+                    link.Text = item[2].ToString();
                     /*link.Click += new EventHandler(link_Clicked);*/
                     link.LinkColor = Color.Black;
                     listLabel.Add(link);
