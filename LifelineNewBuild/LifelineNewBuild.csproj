@@ -116,6 +116,12 @@
     <Compile Include="ActForm.Designer.cs">
       <DependentUpon>ActForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controller\Kalender_Connection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controller\Kalender_GenerateKalender.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
