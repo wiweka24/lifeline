@@ -13,11 +13,20 @@ namespace LifelineNewBuild
         private List<LinkLabel> listLabel = new List<LinkLabel>();
         private DataTable activity;
         private DateTime currentDate = DateTime.Today;
+        private NpgsqlConnection con;
+        private NpgsqlCommand cmd;
+        private NpgsqlDataReader dr;
 
         /// Kalender Load dan beberapa tombol untuk mengakses fungsi
         public Kalender()
         {
             InitializeComponent();
+            InitializeConnection();
+            GetActivityTable();
+        }
+
+        private void InitializeConnection()
+        {
             var uriString = "postgres://szhlblek:O4cczwKuCRX3ta_f_n4K8KjTvvfeSFZW@satao.db.elephantsql.com/szhlblek";
             var uri = new Uri(uriString);
             var db = uri.AbsolutePath.Trim('/');
@@ -27,23 +36,34 @@ namespace LifelineNewBuild
             var connStr = string.Format("Server={0};Database={1};User Id={2};Password={3};Port={4}",
                 uri.Host, db, user, passwd, port);
 
-            NpgsqlConnection con = new NpgsqlConnection(connStr);
-
-            con.Open();
-            NpgsqlCommand cmd = new NpgsqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = "SELECT * FROM activity";
-            NpgsqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
-            {
-                activity = new DataTable();
-                activity.Load(dr);
-            }
-            con.Dispose();
-            con.Close();
+            con = new NpgsqlConnection(connStr);
         }
 
-        private void Kalender_Load_1(object sender, EventArgs e)
+        private void GetActivityTable()
+        {
+            try
+            {
+                con.Open();
+                cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT * FROM activity";
+
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    activity = new DataTable();
+                    activity.Load(dr);
+                }
+                con.Dispose();
+                con.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "FAIL!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Kalender_Load(object sender, EventArgs e)
         {
             GenerateDayPanel(42);
             AddLabelDay(5, 31);
@@ -75,7 +95,7 @@ namespace LifelineNewBuild
             //DisplayCurrentDate();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -85,7 +105,6 @@ namespace LifelineNewBuild
             DisplayCurrentDate();
         }
 
-        /// Fungsi yang digunakan oleh kode kode diatas
         private int GetFirstDayOfWeekOfCurrentDate()
         {
             DateTime firstDayOfMonth = new DateTime(currentDate.Year, currentDate.Month, 1);
@@ -105,7 +124,6 @@ namespace LifelineNewBuild
             int totalDay = GetTotalDaysOfCurrentDate();
             AddLabelDay(firstDayAtFlNumber, totalDay);
             AddAppointmentToFlDay(firstDayAtFlNumber);
-            //AddAppointmentDailyToFlDay(firstDayAtFlNumber);
         }
 
         private void AddAppointmentToFlDay(int startDayAtFlNumber)
@@ -225,7 +243,7 @@ namespace LifelineNewBuild
                 lbl.AutoSize = false;
                 lbl.BackColor = Color.AliceBlue;
                 lbl.TextAlign = ContentAlignment.MiddleRight;
-                lbl.Margin = new Padding(0, 0, 0, -10);
+                lbl.Margin = new Padding(0, 0, 0, 0);
                 lbl.Size = new Size(133, 20);
                 lbl.Text = i.ToString();
                 listFLDays[(i - 1) + (StartDay - 1)].Controls.Add(lbl);
