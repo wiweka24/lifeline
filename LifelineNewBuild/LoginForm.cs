@@ -19,7 +19,7 @@ namespace LifelineNewBuild
         private void loginBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Calendar cal = new Calendar();
+            Kalender cal = new Kalender();
             cal.ShowDialog();
         }
 
