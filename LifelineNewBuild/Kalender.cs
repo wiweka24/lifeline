@@ -32,7 +32,6 @@ namespace LifelineNewBuild
             con.Open();
             NpgsqlCommand cmd = new NpgsqlCommand();
             cmd.Connection = con;
-            cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT * FROM activity";
             NpgsqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -71,8 +70,8 @@ namespace LifelineNewBuild
 
         private void btnNewAct_Click(object sender, EventArgs e)
         {
-            //ActForm aktBaru = new ActForm();
-            //aktBaru.ShowDialog();
+            ActForm aktBaru = new ActForm();
+            aktBaru.ShowDialog();
             //DisplayCurrentDate();
         }
 
@@ -202,7 +201,7 @@ namespace LifelineNewBuild
             {
                 FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Name = $"flDay{i}";
-                fl.Size = new Size(160, 80);
+                fl.Size = new Size(136, 75);
                 fl.Margin = new Padding(5, 5, 5, 5);
                 fl.BackColor = Color.White;
                 fl.BorderStyle = BorderStyle.FixedSingle;
@@ -227,7 +226,7 @@ namespace LifelineNewBuild
                 lbl.BackColor = Color.AliceBlue;
                 lbl.TextAlign = ContentAlignment.MiddleRight;
                 lbl.Margin = new Padding(0, 0, 0, -10);
-                lbl.Size = new Size(160, 20);
+                lbl.Size = new Size(133, 20);
                 lbl.Text = i.ToString();
                 listFLDays[(i - 1) + (StartDay - 1)].Controls.Add(lbl);
             }
