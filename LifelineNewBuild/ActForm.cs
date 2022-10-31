@@ -31,23 +31,22 @@ namespace LifelineNewBuild
                 uri.Host, db, user, passwd, port);
 
             con = new NpgsqlConnection(connStr);
-            con.Open();
-
             cmd = new NpgsqlCommand();
-            cmd.Connection = con;
         }
 
         public ActForm(string nama, string jenisAct, string tanggal, string desk)
         {
             InitializeComponent();
 
+            string[] date = tanggal.Split('-');
+            int[] date_int = Array.ConvertAll(date, int.Parse);
+
             tbNama.Text = nama;
             tbDesk.Text = desk;
+            clTanggal.Value = new DateTime(date_int[2], date_int[1], date_int[0]);
         }
         private void TambahData()
         {
-            // act id
-            int act_id = 3;
             // act user id
             int act_user_id = 1;
             // act name
@@ -58,9 +57,11 @@ namespace LifelineNewBuild
             // act desc
             string act_desc = tbDesk.Text;
 
+            con.Open();
+            cmd.Connection = con;
             cmd.CommandText = string.Format(
-                "INSERT INTO activity(act_id, act_user_id, act_name, act_desc, act_date)" +
-                "VALUES ({0}, {1}, '{2}', '{3}', '{4}');", act_id, act_user_id, act_name, act_desc, act_date_string);
+                "INSERT INTO activity(act_user_id, act_name, act_desc, act_date)" +
+                "VALUES ({0}, '{1}', '{2}', '{3}');", act_user_id, act_name, act_desc, act_date_string);
             cmd.ExecuteNonQuery();
             con.Close();
         }
