@@ -13,10 +13,7 @@ namespace LifelineNewBuild
         // Awal Load Calender
         private void Kalender_Load(object sender, EventArgs e)
         {
-            InitializeConnection();
-            GetActivityTable();
             GenerateDayPanel(42);
-            AddLabelDay(5, 31);
             DisplayCurrentDate();
         }
 
@@ -49,7 +46,7 @@ namespace LifelineNewBuild
         // Klik Link di Aktivitas
         private void link_Clicked(object sender, EventArgs e)
         {
-            LinkOpenAct();
+            LinkOpenAct(sender);
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)

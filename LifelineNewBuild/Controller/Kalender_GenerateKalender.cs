@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -26,14 +27,18 @@ namespace LifelineNewBuild
 
         private void DisplayCurrentDate()
         {
+            InitializeConnection();
+            GetActivityTable();
+
             lblMonthAndYear.Text = currentDate.ToString("MMMM, yyyy");
             int firstDayAtFlNumber = GetFirstDayOfWeekOfCurrentDate();
             int totalDay = GetTotalDaysOfCurrentDate();
+
             AddLabelDay(firstDayAtFlNumber, totalDay);
-            AddAppointmentToFlDay(firstDayAtFlNumber);
+            AddAppointmentAndToday(firstDayAtFlNumber);
         }
 
-        private void AddAppointmentToFlDay(int startDayAtFlNumber)
+        private void AddAppointmentAndToday(int startDayAtFlNumber)
         {
             DateTime startDate = new DateTime(currentDate.Year, currentDate.Month, 1);
             DateTime endDate = startDate.AddMonths(1).AddDays(-1);
@@ -41,95 +46,59 @@ namespace LifelineNewBuild
 
             while (startDate <= endDate)
             {
-                string date = startDate.ToString("dd-MM-yyyy");
-                DataRow[] query = activity.Select("act_date = '" + date + "'");
-                foreach (DataRow item in query)
+                if (activity != null)
                 {
-                    DateTime appDay = startDate;
-                    LinkLabel link = new LinkLabel();
-                    link.Text = item[2].ToString();
-                    /*link.Click += new EventHandler(link_Clicked);*/
-                    link.LinkColor = Color.Black;
-                    listLabel.Add(link);
-                    listFLDays[(appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);
+                    AddAppointmentToFlDay(startDate, startDayAtFlNumber);
                 }
 
                 if (startDate == DateTime.Today)
                 {
                     listFLDays[(startDate.Day - 1) + (startDayAtFlNumber - 1)].BackColor = Color.Orange;
                 }
+
                 startDate = startDate.AddDays(DayInterval);
             }
         }
 
-        /*
-        private void AddAppointmentDailyToFlDay(int startDayAtFlNumber)
+        private void AddAppointmentToFlDay(DateTime startDate, int startDayAtFlNumber)
         {
-            DateTime startDate = new DateTime(currentDate.Year, currentDate.Month, 1);
-            DateTime endDate = startDate.AddMonths(1).AddDays(-1);
-            int DayInterval = 1;
-            string[] hari = { "Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"};
-            string hariIni;
-
-            while (startDate <= endDate)
+            string date = startDate.ToString("dd-MM-yyyy");
+            DataRow[] query = activity.Select("act_date = '" + date + "'");
+            foreach (DataRow item in query)
             {
-                for(int i = 0; i < 7; i++)
-                {
-                    if ((int)startDate.DayOfWeek == i)
-                    {
-                        hariIni = hari[i];
-                        using (var db = new SkheduleDBEntities())
-                        {
-                            var query = from ActDailyTable in db.ActDailyTables where ActDailyTable.waktuDact == hariIni select ActDailyTable;
-                            foreach (var item in query)
-                            {
-                                DateTime appDay = startDate;
-                                LinkLabel link = new LinkLabel();
-                                link.Text = item.namaDact;
-                                link.Click += new EventHandler(link_Clicked);
-                                listLabel.Add(link);
-                                listFLDays[(appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);
-                            }
-                        }
-                    }
-                }
-                startDate = startDate.AddDays(DayInterval);
+                DateTime appDay = startDate;
+                LinkLabel link = new LinkLabel();
+                link.Text = item[2].ToString();
+                link.Click += new EventHandler(link_Clicked);
+                link.LinkColor = Color.Black;
+                listLabel.Add(link);
+                listFLDays[(appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);
             }
-        }*/
+        }
 
-        private void LinkOpenAct()
+        private void LinkOpenAct(object sender)
         {
-            //LinkLabel link = sender as LinkLabel;
-            //link.LinkVisited = true;
-            //using (var db = new SkheduleDBEntities())
-            //{
-            //    var query = from ActTable in db.ActTables where ActTable.namaAct == link.Text select ActTable;
-            //    var query2 = from ActDailyTable in db.ActDailyTables where ActDailyTable.namaDact == link.Text select ActDailyTable;
-            //    foreach (var item in query)
-            //    {
-            //        ActForm aktivitas = new ActForm(item.namaAct, item.jenisAct, item.waktuAct, item.deskAct);
-            //        aktivitas.ShowDialog();
-            //    }
-            //    foreach(var item in query2)
-            //    {
-            //        ActForm aktivitas = new ActForm(item.namaDact, item.jenisDact, item.waktuDact, item.deskDact);
-            //        aktivitas.ShowDialog();
-            //    }
-            //}
+            LinkLabel link = sender as LinkLabel;
+            link.LinkVisited = true;
+            string actName = link.Text;
+
+            DataRow[] query = activity.Select("act_name = '" + actName + "'");
+
+            foreach (DataRow item in query)
+            {
+                ActForm aktivitas = new ActForm(item[2].ToString(), item[3].ToString(), item[5].ToString(), item[4].ToString());
+                aktivitas.ShowDialog();
+            }
         }
 
         private void GenerateDayPanel(int totalDays)
         {
-            flDays.Controls.Clear();
-            listFLDays.Clear();
             for (int i = 1; i <= totalDays; i++)
             {
                 FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Name = $"flDay{i}";
                 fl.Size = new Size(136, 75);
                 fl.Margin = new Padding(5, 5, 5, 5);
-                fl.BackColor = Color.White;
-                fl.BorderStyle = BorderStyle.FixedSingle;
                 flDays.Controls.Add(fl);
                 listFLDays.Add(fl);
             }
@@ -141,6 +110,7 @@ namespace LifelineNewBuild
             {
                 fl.Controls.Clear();
                 fl.BackColor = Color.White;
+                fl.BorderStyle = BorderStyle.None;
             }
 
             for (int i = 1; i <= totalDayInMonth; i++)
@@ -153,7 +123,9 @@ namespace LifelineNewBuild
                 lbl.Margin = new Padding(0, 0, 0, 0);
                 lbl.Size = new Size(136, 20);
                 lbl.Text = i.ToString();
+
                 listFLDays[(i - 1) + (StartDay - 1)].Controls.Add(lbl);
+                listFLDays[(i - 1) + (StartDay - 1)].BorderStyle = BorderStyle.FixedSingle;
             }
         }
     }
