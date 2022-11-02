@@ -1,10 +1,15 @@
-﻿using System;
+﻿using LifelineNewBuild.Controller;
+using Npgsql;
+using System;
 using System.Windows.Forms;
 
 namespace LifelineNewBuild
 {
     public partial class ActForm : Form
     {
+
+        NpgsqlConnection con;
+        NpgsqlCommand cmd;
         private string currentAct;
         private string currentUser;
 
@@ -30,6 +35,12 @@ namespace LifelineNewBuild
 
             currentAct = act_id;
             currentUser = userLogin;    
+        }
+
+        private void InitializeConnection()
+        {
+            Connection newConnection = new Connection();
+            (con, cmd) = newConnection.InitializeConnection();
         }
 
         private void btnAct_Click(object sender, EventArgs e)

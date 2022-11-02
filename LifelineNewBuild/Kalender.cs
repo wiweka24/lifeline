@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LifelineNewBuild.Controller;
+using Npgsql;
+using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace LifelineNewBuild
@@ -6,11 +9,19 @@ namespace LifelineNewBuild
     public partial class Kalender : Form
     {
         private string currentUser;
+        private NpgsqlConnection con;
+        private NpgsqlCommand cmd;
 
         public Kalender(string userLogin)
         {
             InitializeComponent();
             currentUser = userLogin;
+        }
+
+        private void InitializeConnection()
+        {
+            Connection newConnection = new Connection();
+            (con, cmd) = newConnection.InitializeConnection();
         }
 
         // Awal Load Calender

@@ -150,7 +150,7 @@ namespace LifelineNewBuild
             this.DoubleBuffered = true;
             this.Name = "ActForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "7";
+            this.Text = "Lifeline";
             this.ResumeLayout(false);
             this.PerformLayout();
 

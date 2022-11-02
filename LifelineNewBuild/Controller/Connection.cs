@@ -1,16 +1,15 @@
 ﻿using Npgsql;
 using System;
-using System.Windows.Forms;
 
-namespace LifelineNewBuild
+namespace LifelineNewBuild.Controller
 {
-    public partial class ActForm : Form
+    internal class Connection
     {
-        NpgsqlConnection con;
-        NpgsqlCommand cmd;
-
-        private void InitializeConnection()
+        public (NpgsqlConnection, NpgsqlCommand) InitializeConnection()
         {
+            NpgsqlConnection con;
+            NpgsqlCommand cmd;
+
             var uriString = "postgres://szhlblek:O4cczwKuCRX3ta_f_n4K8KjTvvfeSFZW@satao.db.elephantsql.com/szhlblek";
             var uri = new Uri(uriString);
             var db = uri.AbsolutePath.Trim('/');
@@ -22,6 +21,8 @@ namespace LifelineNewBuild
 
             con = new NpgsqlConnection(connStr);
             cmd = new NpgsqlCommand();
+
+            return (con, cmd);
         }
     }
 }
