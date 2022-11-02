@@ -572,6 +572,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MinimumSize = new System.Drawing.Size(358, 568);
             this.Name = "SignUpForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lifeline";
             this.ResumeLayout(false);
             this.PerformLayout();
