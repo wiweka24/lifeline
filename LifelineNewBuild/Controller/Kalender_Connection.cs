@@ -24,6 +24,7 @@ namespace LifelineNewBuild
                 uri.Host, db, user, passwd, port);
 
             con = new NpgsqlConnection(connStr);
+            cmd = new NpgsqlCommand();
         }
 
         private void GetActivityTable()
@@ -31,9 +32,8 @@ namespace LifelineNewBuild
             try
             {
                 con.Open();
-                cmd = new NpgsqlCommand();
                 cmd.Connection = con;
-                cmd.CommandText = "SELECT * FROM activity";
+                cmd.CommandText = string.Format("SELECT * FROM activity WHERE act_user_id = '{0}'", currentUser);
 
                 dr = cmd.ExecuteReader();
                 if (dr.HasRows)

@@ -5,9 +5,12 @@ namespace LifelineNewBuild
 {
     public partial class Kalender : Form
     {
-        public Kalender()
+        private string currentUser;
+
+        public Kalender(string userLogin)
         {
             InitializeComponent();
+            currentUser = userLogin;
         }
 
         // Awal Load Calender
@@ -38,7 +41,7 @@ namespace LifelineNewBuild
         // Klik Aktivitas Baru -> Buka Form Aktivitas
         private void btnNewAct_Click(object sender, EventArgs e)
         {
-            ActForm newAct = new ActForm();
+            ActForm newAct = new ActForm(currentUser);
             newAct.ShowDialog();
             DisplayCurrentDate();
         }

@@ -68,7 +68,7 @@ namespace LifelineNewBuild
             {
                 DateTime appDay = startDate;
                 LinkLabel link = new LinkLabel();
-                link.Text = item[2].ToString();
+                link.Text = item["act_name"].ToString();
                 link.Click += new EventHandler(link_Clicked);
                 link.LinkColor = Color.Black;
                 listLabel.Add(link);
@@ -86,7 +86,7 @@ namespace LifelineNewBuild
 
             foreach (DataRow item in query)
             {
-                ActForm aktivitas = new ActForm(item[2].ToString(), item[3].ToString(), item[5].ToString(), item[4].ToString());
+                ActForm aktivitas = new ActForm(item["act_name"].ToString(), item["act_type"].ToString(), item["act_date"].ToString(), item["act_desc"].ToString(), item["act_id"].ToString(), currentUser);
                 aktivitas.ShowDialog();
             }
         }
