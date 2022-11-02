@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Npgsql;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -12,6 +13,32 @@ namespace LifelineNewBuild
         private List<FlowLayoutPanel> listFLDays = new List<FlowLayoutPanel>();
         private List<LinkLabel> listLabel = new List<LinkLabel>();
         private DateTime currentDate = DateTime.Today;
+
+        private NpgsqlDataReader dr;
+        private DataTable activity;
+
+        private void GetActivityTable()
+        {
+            try
+            {
+                con.Open();
+                cmd.Connection = con;
+                cmd.CommandText = string.Format("SELECT * FROM activity WHERE act_user_id = '{0}'", currentUser);
+
+                dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    activity = new DataTable();
+                    activity.Load(dr);
+                }
+                con.Dispose();
+                con.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error: " + err.Message, "FAIL!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         private int GetFirstDayOfWeekOfCurrentDate()
         {

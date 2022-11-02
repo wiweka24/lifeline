@@ -271,7 +271,7 @@ namespace LifelineNewBuild
             this.DoubleBuffered = true;
             this.Name = "Kalender";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Kalender";
+            this.Text = "Lifeline";
             this.Load += new System.EventHandler(this.Kalender_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
