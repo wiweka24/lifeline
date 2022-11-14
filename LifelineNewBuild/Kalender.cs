@@ -1,7 +1,6 @@
 ﻿using LifelineNewBuild.Controller;
 using Npgsql;
 using System;
-using System.Data;
 using System.Windows.Forms;
 
 namespace LifelineNewBuild
@@ -12,10 +11,16 @@ namespace LifelineNewBuild
         private NpgsqlConnection con;
         private NpgsqlCommand cmd;
 
-        public Kalender(string userLogin)
+        public Kalender()
+        {
+            InitializeComponent();
+        }
+
+        public Kalender(string userLogin, string userName)
         {
             InitializeComponent();
             currentUser = userLogin;
+            lblUsername.Text = userName;
         }
 
         private void InitializeConnection()
@@ -24,10 +29,10 @@ namespace LifelineNewBuild
             (con, cmd) = newConnection.InitializeConnection();
         }
 
-        // Awal Load Calender
         private void Kalender_Load(object sender, EventArgs e)
         {
             GenerateDayPanel(42);
+            GenerateUpcomingActPanel(4);
             DisplayCurrentDate();
         }
 
@@ -49,7 +54,6 @@ namespace LifelineNewBuild
             DisplayCurrentDate();
         }
 
-        // Klik Aktivitas Baru -> Buka Form Aktivitas
         private void btnNewAct_Click(object sender, EventArgs e)
         {
             ActForm newAct = new ActForm(currentUser);
@@ -57,7 +61,6 @@ namespace LifelineNewBuild
             DisplayCurrentDate();
         }
 
-        // Klik Link di Aktivitas
         private void link_Clicked(object sender, EventArgs e)
         {
             LinkOpenAct(sender);

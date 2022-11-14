@@ -2,7 +2,6 @@ using LifelineNewBuild.Controller;
 using Npgsql;
 using System;
 using System.Data;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace LifelineNewBuild
@@ -13,7 +12,8 @@ namespace LifelineNewBuild
         NpgsqlCommand cmd;
         private NpgsqlDataReader dr;
         private DataTable user;
-        private string userLoginID;
+        private string userID;
+        private string username;
 
         public LoginForm()
         {
@@ -57,7 +57,7 @@ namespace LifelineNewBuild
             if (check == 0)
             {
                 this.Hide();
-                Kalender cal = new Kalender(userLoginID);
+                Kalender cal = new Kalender(userID, username);
                 cal.ShowDialog();
             }
         }
@@ -73,8 +73,8 @@ namespace LifelineNewBuild
         private int CheckUser()
         {
             DataRow[] user_query = user.Select("user_name = '" + tbUsername.Text + "'");
-            userLoginID = user_query[0]["user_id"].ToString();
-            string username = user_query[0]["user_name"].ToString();
+            userID = user_query[0]["user_id"].ToString();
+            username = user_query[0]["user_name"].ToString();
             string password = user_query[0]["user_password"].ToString();
             
             if (username == "")
