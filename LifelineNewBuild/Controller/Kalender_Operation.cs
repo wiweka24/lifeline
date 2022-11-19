@@ -63,7 +63,10 @@ namespace LifelineNewBuild
 
             AddLabelDay(firstDayAtFlNumber, totalDay);
             AddAppointmentAndToday(firstDayAtFlNumber);
-            AddUpcomingAct();
+            if (activity != null)
+            {
+                AddUpcomingAct();
+            }
         }
 
         private void AddAppointmentAndToday(int startDayAtFlNumber)
@@ -81,7 +84,7 @@ namespace LifelineNewBuild
 
                 if (startDate == DateTime.Today)
                 {
-                    listFLDays[(startDate.Day - 1) + (startDayAtFlNumber - 1)].BackColor = Color.Orange;
+                    listFLDays[(startDate.Day - 1) + (startDayAtFlNumber - 1)].BackColor = Color.DodgerBlue;
                 }
 
                 startDate = startDate.AddDays(DayInterval);
@@ -127,6 +130,7 @@ namespace LifelineNewBuild
                 fl.Name = $"flDay{i}";
                 fl.Size = new Size(136, 75);
                 fl.Margin = new Padding(5, 5, 5, 5);
+                fl.BorderStyle = BorderStyle.None;
                 flDays.Controls.Add(fl);
                 listFLDays.Add(fl);
             }
@@ -137,8 +141,7 @@ namespace LifelineNewBuild
             foreach (FlowLayoutPanel fl in listFLDays)
             {
                 fl.Controls.Clear();
-                fl.BackColor = Color.White;
-                fl.BorderStyle = BorderStyle.None;
+                fl.BackColor = Color.Transparent;
             }
 
             for (int i = 1; i <= totalDayInMonth; i++)
@@ -151,9 +154,9 @@ namespace LifelineNewBuild
                 lbl.Margin = new Padding(0, 0, 0, 0);
                 lbl.Size = new Size(136, 20);
                 lbl.Text = i.ToString();
-
                 listFLDays[(i - 1) + (StartDay - 1)].Controls.Add(lbl);
-                listFLDays[(i - 1) + (StartDay - 1)].BorderStyle = BorderStyle.FixedSingle;
+
+                listFLDays[(i - 1) + (StartDay - 1)].BackColor = Color.LightSteelBlue;
             }
         }
 
@@ -165,6 +168,7 @@ namespace LifelineNewBuild
                 fl.Name = $"flDay{i}";
                 fl.Size = new Size(200, 75);
                 fl.Margin = new Padding(5, 5, 5, 5);
+                fl.BorderStyle = BorderStyle.None;
                 flUpcomingAct.Controls.Add(fl);
                 listFLActs.Add(fl);
             }
@@ -178,7 +182,6 @@ namespace LifelineNewBuild
             foreach (FlowLayoutPanel fl in listFLActs)
             {
                 fl.Controls.Clear();
-                fl.BorderStyle = BorderStyle.None;
             }
 
             foreach (DataRow row in activity.Rows)
@@ -198,7 +201,7 @@ namespace LifelineNewBuild
                     Label txtbx_date = new Label();
                     txtbx_date.Text = row["act_date"].ToString();
 
-                    listFLActs[k].BorderStyle = BorderStyle.FixedSingle;
+                    listFLActs[k].BackColor = Color.White;
                     listFLActs[k].Controls.Add(link);
                     listFLActs[k].Controls.Add(txtbx_date);
 
