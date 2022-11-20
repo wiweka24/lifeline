@@ -153,7 +153,7 @@ namespace LifelineNewBuild
             this.flDays.BackColor = System.Drawing.Color.Transparent;
             this.flDays.Location = new System.Drawing.Point(316, 128);
             this.flDays.Name = "flDays";
-            this.flDays.Size = new System.Drawing.Size(1026, 529);
+            this.flDays.Size = new System.Drawing.Size(1026, 880);
             this.flDays.TabIndex = 8;
             // 
             // btnPrevMonth
@@ -304,7 +304,7 @@ namespace LifelineNewBuild
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1362, 681);
+            this.ClientSize = new System.Drawing.Size(1362, 1020);
             this.Controls.Add(this.flUpcomingAct);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelRandom);

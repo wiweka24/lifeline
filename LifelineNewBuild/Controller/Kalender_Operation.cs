@@ -84,7 +84,7 @@ namespace LifelineNewBuild
 
                 if (startDate == DateTime.Today)
                 {
-                    listFLDays[(startDate.Day - 1) + (startDayAtFlNumber - 1)].BackColor = Color.DodgerBlue;
+                    listFLDays[(startDate.Day - 1) + (startDayAtFlNumber - 1)].BackColor = Color.FromArgb(59, 130, 246);
                 }
 
                 startDate = startDate.AddDays(DayInterval);
@@ -128,9 +128,9 @@ namespace LifelineNewBuild
             {
                 FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Name = $"flDay{i}";
-                fl.Size = new Size(136, 75);
+                fl.Size = new Size(136, 136);
                 fl.Margin = new Padding(5, 5, 5, 5);
-                fl.BorderStyle = BorderStyle.None;
+                fl.Padding = new Padding(5, 5, 5, 5);
                 flDays.Controls.Add(fl);
                 listFLDays.Add(fl);
             }
@@ -141,7 +141,7 @@ namespace LifelineNewBuild
             foreach (FlowLayoutPanel fl in listFLDays)
             {
                 fl.Controls.Clear();
-                fl.BackColor = Color.Transparent;
+                fl.BackColor = Color.FromArgb(248, 250, 252);
             }
 
             for (int i = 1; i <= totalDayInMonth; i++)
@@ -149,14 +149,14 @@ namespace LifelineNewBuild
                 Label lbl = new Label();
                 lbl.Name = $"lblDay{i}";
                 lbl.AutoSize = false;
-                lbl.BackColor = Color.AliceBlue;
-                lbl.TextAlign = ContentAlignment.MiddleRight;
-                lbl.Margin = new Padding(0, 0, 0, 0);
+                lbl.TextAlign = ContentAlignment.MiddleLeft;
                 lbl.Size = new Size(136, 20);
                 lbl.Text = i.ToString();
+                lbl.Font = new Font("Segoe UI Semibold", 10);
                 listFLDays[(i - 1) + (StartDay - 1)].Controls.Add(lbl);
 
-                listFLDays[(i - 1) + (StartDay - 1)].BackColor = Color.LightSteelBlue;
+                listFLDays[(i - 1) + (StartDay - 1)].BackColor = Color.FromArgb(209, 220, 250);
+                //94A3B8
             }
         }
 
@@ -168,7 +168,6 @@ namespace LifelineNewBuild
                 fl.Name = $"flDay{i}";
                 fl.Size = new Size(200, 75);
                 fl.Margin = new Padding(5, 5, 5, 5);
-                fl.BorderStyle = BorderStyle.None;
                 flUpcomingAct.Controls.Add(fl);
                 listFLActs.Add(fl);
             }
@@ -182,6 +181,7 @@ namespace LifelineNewBuild
             foreach (FlowLayoutPanel fl in listFLActs)
             {
                 fl.Controls.Clear();
+                fl.BackColor = Color.Transparent;
             }
 
             foreach (DataRow row in activity.Rows)
