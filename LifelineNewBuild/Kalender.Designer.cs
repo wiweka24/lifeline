@@ -30,8 +30,8 @@ namespace LifelineNewBuild
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Kalender));
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges13 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges14 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges borderEdges8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderEdges();
             this.lblMonthAndYear = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -199,7 +199,7 @@ namespace LifelineNewBuild
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnExit.ForeColor = System.Drawing.Color.Black;
-            this.btnExit.Location = new System.Drawing.Point(254, 9);
+            this.btnExit.Location = new System.Drawing.Point(1237, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(46, 46);
             this.btnExit.TabIndex = 13;
@@ -215,7 +215,7 @@ namespace LifelineNewBuild
             this.btnRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnRefresh.ForeColor = System.Drawing.Color.Transparent;
-            this.btnRefresh.Location = new System.Drawing.Point(595, 10);
+            this.btnRefresh.Location = new System.Drawing.Point(1289, 12);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(46, 46);
             this.btnRefresh.TabIndex = 14;
@@ -224,32 +224,32 @@ namespace LifelineNewBuild
             // 
             // lblUsername
             // 
-            this.lblUsername.BackColor = System.Drawing.Color.White;
-            this.lblUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
+            this.lblUsername.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUsername.ForeColor = System.Drawing.Color.Black;
-            this.lblUsername.Location = new System.Drawing.Point(109, 80);
+            this.lblUsername.Location = new System.Drawing.Point(97, 33);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(189, 40);
+            this.lblUsername.Size = new System.Drawing.Size(194, 70);
             this.lblUsername.TabIndex = 15;
             this.lblUsername.Text = "Username";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(109, 128);
+            this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
+            this.label1.Location = new System.Drawing.Point(19, 129);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 40);
+            this.label1.Size = new System.Drawing.Size(272, 40);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Upcoming";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Text = "UPCOMING ACTIVITIES";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flUpcomingAct
             // 
-            this.flUpcomingAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
-            this.flUpcomingAct.ForeColor = System.Drawing.Color.Black;
+            this.flUpcomingAct.BackColor = System.Drawing.Color.White;
+            this.flUpcomingAct.ForeColor = System.Drawing.Color.Transparent;
             this.flUpcomingAct.Location = new System.Drawing.Point(17, 171);
             this.flUpcomingAct.Margin = new System.Windows.Forms.Padding(0);
             this.flUpcomingAct.Name = "flUpcomingAct";
@@ -276,15 +276,15 @@ namespace LifelineNewBuild
             this.btnNewAct.ColorContrastOnClick = 45;
             this.btnNewAct.ColorContrastOnHover = 45;
             this.btnNewAct.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges13.BottomLeft = true;
-            borderEdges13.BottomRight = true;
-            borderEdges13.TopLeft = true;
-            borderEdges13.TopRight = true;
-            this.btnNewAct.CustomizableEdges = borderEdges13;
+            borderEdges7.BottomLeft = true;
+            borderEdges7.BottomRight = true;
+            borderEdges7.TopLeft = true;
+            borderEdges7.TopRight = true;
+            this.btnNewAct.CustomizableEdges = borderEdges7;
             this.btnNewAct.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btnNewAct.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
-            this.btnNewAct.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnNewAct.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnNewAct.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.btnNewAct.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.btnNewAct.DisabledForecolor = System.Drawing.Color.White;
             this.btnNewAct.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.btnNewAct.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewAct.ForeColor = System.Drawing.Color.White;
@@ -304,14 +304,14 @@ namespace LifelineNewBuild
             this.btnNewAct.IdleIconLeftImage = null;
             this.btnNewAct.IdleIconRightImage = null;
             this.btnNewAct.IndicateFocus = false;
-            this.btnNewAct.Location = new System.Drawing.Point(452, 9);
+            this.btnNewAct.Location = new System.Drawing.Point(465, 10);
             this.btnNewAct.Name = "btnNewAct";
-            this.btnNewAct.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnNewAct.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
             this.btnNewAct.OnDisabledState.BorderRadius = 10;
             this.btnNewAct.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton.BorderStyles.Solid;
             this.btnNewAct.OnDisabledState.BorderThickness = 1;
-            this.btnNewAct.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.btnNewAct.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnNewAct.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(130)))), ((int)(((byte)(246)))));
+            this.btnNewAct.OnDisabledState.ForeColor = System.Drawing.Color.White;
             this.btnNewAct.OnDisabledState.IconLeftImage = null;
             this.btnNewAct.OnDisabledState.IconRightImage = null;
             this.btnNewAct.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
@@ -338,7 +338,7 @@ namespace LifelineNewBuild
             this.btnNewAct.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnNewAct.OnPressedState.IconLeftImage = null;
             this.btnNewAct.OnPressedState.IconRightImage = null;
-            this.btnNewAct.Size = new System.Drawing.Size(124, 44);
+            this.btnNewAct.Size = new System.Drawing.Size(140, 44);
             this.btnNewAct.TabIndex = 19;
             this.btnNewAct.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnNewAct.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -366,11 +366,11 @@ namespace LifelineNewBuild
             this.btnToday.ColorContrastOnClick = 45;
             this.btnToday.ColorContrastOnHover = 45;
             this.btnToday.Cursor = System.Windows.Forms.Cursors.Default;
-            borderEdges14.BottomLeft = true;
-            borderEdges14.BottomRight = true;
-            borderEdges14.TopLeft = true;
-            borderEdges14.TopRight = true;
-            this.btnToday.CustomizableEdges = borderEdges14;
+            borderEdges8.BottomLeft = true;
+            borderEdges8.BottomRight = true;
+            borderEdges8.TopLeft = true;
+            borderEdges8.TopRight = true;
+            this.btnToday.CustomizableEdges = borderEdges8;
             this.btnToday.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btnToday.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnToday.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
@@ -394,7 +394,7 @@ namespace LifelineNewBuild
             this.btnToday.IdleIconLeftImage = null;
             this.btnToday.IdleIconRightImage = null;
             this.btnToday.IndicateFocus = false;
-            this.btnToday.Location = new System.Drawing.Point(322, 9);
+            this.btnToday.Location = new System.Drawing.Point(316, 10);
             this.btnToday.Name = "btnToday";
             this.btnToday.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnToday.OnDisabledState.BorderRadius = 10;
@@ -428,7 +428,7 @@ namespace LifelineNewBuild
             this.btnToday.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnToday.OnPressedState.IconLeftImage = null;
             this.btnToday.OnPressedState.IconRightImage = null;
-            this.btnToday.Size = new System.Drawing.Size(124, 44);
+            this.btnToday.Size = new System.Drawing.Size(140, 44);
             this.btnToday.TabIndex = 18;
             this.btnToday.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnToday.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -460,7 +460,7 @@ namespace LifelineNewBuild
             this.bunifuImageButton1.ImageSize = new System.Drawing.Size(30, 30);
             this.bunifuImageButton1.ImageZoomSize = new System.Drawing.Size(70, 70);
             this.bunifuImageButton1.InitialImage = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton1.InitialImage")));
-            this.bunifuImageButton1.Location = new System.Drawing.Point(26, 51);
+            this.bunifuImageButton1.Location = new System.Drawing.Point(23, 33);
             this.bunifuImageButton1.Name = "bunifuImageButton1";
             this.bunifuImageButton1.Rotation = 0;
             this.bunifuImageButton1.ShowActiveImage = true;

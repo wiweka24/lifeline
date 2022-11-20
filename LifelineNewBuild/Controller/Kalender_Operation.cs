@@ -12,8 +12,6 @@ namespace LifelineNewBuild
     {
         private List<FlowLayoutPanel> listFLDays = new List<FlowLayoutPanel>();
         private List<FlowLayoutPanel> listFLActs = new List<FlowLayoutPanel>();
-        private List<LinkLabel> listLabel = new List<LinkLabel>();
-        private List<LinkLabel> listUpcomingLabel = new List<LinkLabel>();
         private DateTime currentDate = DateTime.Today;
 
         private NpgsqlDataReader dr;
@@ -106,6 +104,7 @@ namespace LifelineNewBuild
                 aktivitas.ShowDialog();
             }
         }
+
         private void GenerateDayPanel(int totalDays)
         {
             for (int i = 1; i <= totalDays; i++)
@@ -125,6 +124,7 @@ namespace LifelineNewBuild
             foreach (FlowLayoutPanel fl in listFLDays)
             {
                 fl.Controls.Clear();
+                fl.BorderStyle = BorderStyle.None;
                 fl.BackColor = Color.FromArgb(248, 250, 252);
             }
 
@@ -161,7 +161,6 @@ namespace LifelineNewBuild
                 link.ForeColor = Color.Black;
                 link.TextAlign = ContentAlignment.MiddleCenter;
   
-                listLabel.Add(link);
                 listFLDays[(appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);
             }
         }
@@ -173,7 +172,7 @@ namespace LifelineNewBuild
                 FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Name = $"flDay{i}";
                 fl.Size = new Size(250, 100);
-                fl.Margin = new Padding(5, 5, 5, 5);
+                fl.Margin = new Padding(5);
                 flUpcomingAct.Controls.Add(fl);
                 listFLActs.Add(fl);
             }
@@ -188,6 +187,7 @@ namespace LifelineNewBuild
             {
                 fl.Controls.Clear();
                 fl.BackColor = Color.Transparent;
+                fl.BorderStyle = BorderStyle.None;
             }
 
             foreach (DataRow row in activity.Rows)
@@ -196,20 +196,38 @@ namespace LifelineNewBuild
                 int[] date_int = Array.ConvertAll(date, int.Parse);
 
                 DateTime date_date = new DateTime(date_int[2], date_int[1], date_int[0]);
-                if (date_date >= currentDate && k < 4)
+                if (date_date >= currentDate && k <= 7)
                 {
                     LinkLabel link = new LinkLabel();
                     link.Text = row["act_name"].ToString();
                     link.Click += new EventHandler(link_Clicked);
                     link.LinkColor = Color.Black;
-                    listUpcomingLabel.Add(link);
+                    link.Size = new Size(240, 25);
+                    link.Font = new Font("Segoe UI", 12, FontStyle.Bold);
 
                     Label txtbx_date = new Label();
-                    txtbx_date.Text = row["act_date"].ToString();
+                    txtbx_date.Text = "deadline : " + row["act_date"].ToString();
+                    txtbx_date.ForeColor = Color.Black;
+                    txtbx_date.Size = new Size(240, 25);
+                    txtbx_date.Font = new Font("Segoe UI Semibold", 10);
+
+                    Label txtbx_desc = new Label();
+                    txtbx_desc.Text = "desc : " + row["act_desc"].ToString();
+                    txtbx_desc.ForeColor = Color.Black;
+                    txtbx_desc.Size = new Size(240, 35);
+                    txtbx_desc.Font = new Font("Segoe UI Semibold", 10);
+
+                    Label txtbx_color = new Label();
+                    txtbx_color.Size = new Size(250, 15);
+                    txtbx_color.Margin = new Padding(-10);
+                    txtbx_color.BackColor = Color.FromArgb(59, 130, 246);
 
                     listFLActs[k].BackColor = Color.White;
+                    listFLActs[k].BorderStyle = BorderStyle.FixedSingle;
                     listFLActs[k].Controls.Add(link);
                     listFLActs[k].Controls.Add(txtbx_date);
+                    listFLActs[k].Controls.Add(txtbx_desc);
+                    listFLActs[k].Controls.Add(txtbx_color);
 
                     k++;
                 }
