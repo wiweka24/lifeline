@@ -84,7 +84,7 @@ namespace LifelineNewBuild
             this.clTanggal.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.clTanggal.LeftTextMargin = 5;
             this.clTanggal.Location = new System.Drawing.Point(32, 193);
-            this.clTanggal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.clTanggal.Margin = new System.Windows.Forms.Padding(2);
             this.clTanggal.MinimumSize = new System.Drawing.Size(4, 32);
             this.clTanggal.Name = "clTanggal";
             this.clTanggal.Size = new System.Drawing.Size(146, 32);
@@ -118,7 +118,7 @@ namespace LifelineNewBuild
             this.tbDesk.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDesk.Lines = new string[0];
             this.tbDesk.Location = new System.Drawing.Point(32, 280);
-            this.tbDesk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbDesk.Margin = new System.Windows.Forms.Padding(2);
             this.tbDesk.MaxLength = 32767;
             this.tbDesk.MinimumSize = new System.Drawing.Size(1, 1);
             this.tbDesk.Modified = false;
@@ -144,7 +144,7 @@ namespace LifelineNewBuild
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.tbDesk.OnIdleState = stateProperties4;
-            this.tbDesk.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbDesk.Padding = new System.Windows.Forms.Padding(2);
             this.tbDesk.PasswordChar = '\0';
             this.tbDesk.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.tbDesk.PlaceholderText = "Activity description here";
@@ -204,7 +204,7 @@ namespace LifelineNewBuild
             this.tbNama.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.tbNama.Lines = new string[0];
             this.tbNama.Location = new System.Drawing.Point(32, 93);
-            this.tbNama.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNama.Margin = new System.Windows.Forms.Padding(2);
             this.tbNama.MaxLength = 32767;
             this.tbNama.MinimumSize = new System.Drawing.Size(1, 1);
             this.tbNama.Modified = false;
@@ -230,7 +230,7 @@ namespace LifelineNewBuild
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.tbNama.OnIdleState = stateProperties8;
-            this.tbNama.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbNama.Padding = new System.Windows.Forms.Padding(2);
             this.tbNama.PasswordChar = '\0';
             this.tbNama.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.tbNama.PlaceholderText = "Activity name goes here";
@@ -361,6 +361,7 @@ namespace LifelineNewBuild
             this.btnAct.TextMarginLeft = 0;
             this.btnAct.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnAct.UseDefaultRadiusAndThickness = true;
+            this.btnAct.Click += new System.EventHandler(this.btnAct_Click);
             // 
             // btnEdt
             // 
