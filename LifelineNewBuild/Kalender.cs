@@ -61,7 +61,7 @@ namespace LifelineNewBuild
             DisplayCurrentDate();
         }
 
-        private void link_Clicked(object sender, EventArgs e)
+        private void link_Click(object sender, EventArgs e)
         {
             LinkOpenAct(sender);
         }

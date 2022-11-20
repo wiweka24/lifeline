@@ -58,7 +58,7 @@ namespace LifelineNewBuild
             this.btnDel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDel.ForeColor = System.Drawing.Color.White;
-            this.btnDel.Location = new System.Drawing.Point(219, 44);
+            this.btnDel.Location = new System.Drawing.Point(248, 25);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(40, 40);
             this.btnDel.TabIndex = 11;
@@ -83,11 +83,11 @@ namespace LifelineNewBuild
             this.clTanggal.IconColor = System.Drawing.Color.Gray;
             this.clTanggal.IconLocation = Bunifu.UI.WinForms.BunifuDatePicker.Indicator.Right;
             this.clTanggal.LeftTextMargin = 5;
-            this.clTanggal.Location = new System.Drawing.Point(32, 193);
+            this.clTanggal.Location = new System.Drawing.Point(37, 193);
             this.clTanggal.Margin = new System.Windows.Forms.Padding(2);
             this.clTanggal.MinimumSize = new System.Drawing.Size(4, 32);
             this.clTanggal.Name = "clTanggal";
-            this.clTanggal.Size = new System.Drawing.Size(146, 32);
+            this.clTanggal.Size = new System.Drawing.Size(250, 32);
             this.clTanggal.TabIndex = 21;
             // 
             // tbDesk
@@ -117,7 +117,7 @@ namespace LifelineNewBuild
             this.tbDesk.IconRight = null;
             this.tbDesk.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.tbDesk.Lines = new string[0];
-            this.tbDesk.Location = new System.Drawing.Point(32, 280);
+            this.tbDesk.Location = new System.Drawing.Point(37, 282);
             this.tbDesk.Margin = new System.Windows.Forms.Padding(2);
             this.tbDesk.MaxLength = 32767;
             this.tbDesk.MinimumSize = new System.Drawing.Size(1, 1);
@@ -154,7 +154,7 @@ namespace LifelineNewBuild
             this.tbDesk.SelectionLength = 0;
             this.tbDesk.SelectionStart = 0;
             this.tbDesk.ShortcutsEnabled = true;
-            this.tbDesk.Size = new System.Drawing.Size(228, 41);
+            this.tbDesk.Size = new System.Drawing.Size(250, 41);
             this.tbDesk.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.tbDesk.TabIndex = 23;
             this.tbDesk.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -168,11 +168,11 @@ namespace LifelineNewBuild
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label1.Location = new System.Drawing.Point(38, 61);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(33, 63);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 22);
+            this.label1.Size = new System.Drawing.Size(123, 24);
             this.label1.TabIndex = 26;
             this.label1.Text = "Activity Name";
             // 
@@ -203,7 +203,7 @@ namespace LifelineNewBuild
             this.tbNama.IconRight = null;
             this.tbNama.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.tbNama.Lines = new string[0];
-            this.tbNama.Location = new System.Drawing.Point(32, 93);
+            this.tbNama.Location = new System.Drawing.Point(37, 99);
             this.tbNama.Margin = new System.Windows.Forms.Padding(2);
             this.tbNama.MaxLength = 32767;
             this.tbNama.MinimumSize = new System.Drawing.Size(1, 1);
@@ -240,7 +240,7 @@ namespace LifelineNewBuild
             this.tbNama.SelectionLength = 0;
             this.tbNama.SelectionStart = 0;
             this.tbNama.ShortcutsEnabled = true;
-            this.tbNama.Size = new System.Drawing.Size(228, 41);
+            this.tbNama.Size = new System.Drawing.Size(250, 41);
             this.tbNama.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.tbNama.TabIndex = 28;
             this.tbNama.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -254,22 +254,22 @@ namespace LifelineNewBuild
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label3.Location = new System.Drawing.Point(38, 162);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(33, 158);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 22);
+            this.label3.Size = new System.Drawing.Size(48, 24);
             this.label3.TabIndex = 29;
             this.label3.Text = "Date";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label2.Location = new System.Drawing.Point(39, 249);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(33, 246);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 22);
+            this.label2.Size = new System.Drawing.Size(104, 24);
             this.label2.TabIndex = 30;
             this.label2.Text = "Description";
             // 
@@ -320,7 +320,7 @@ namespace LifelineNewBuild
             this.btnAct.IdleIconLeftImage = null;
             this.btnAct.IdleIconRightImage = null;
             this.btnAct.IndicateFocus = false;
-            this.btnAct.Location = new System.Drawing.Point(32, 365);
+            this.btnAct.Location = new System.Drawing.Point(37, 365);
             this.btnAct.Name = "btnAct";
             this.btnAct.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnAct.OnDisabledState.BorderRadius = 10;
@@ -410,7 +410,7 @@ namespace LifelineNewBuild
             this.btnEdt.IdleIconLeftImage = null;
             this.btnEdt.IdleIconRightImage = null;
             this.btnEdt.IndicateFocus = false;
-            this.btnEdt.Location = new System.Drawing.Point(163, 365);
+            this.btnEdt.Location = new System.Drawing.Point(168, 365);
             this.btnEdt.Name = "btnEdt";
             this.btnEdt.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnEdt.OnDisabledState.BorderRadius = 10;
