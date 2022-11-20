@@ -155,7 +155,7 @@ namespace LifelineNewBuild
             this.flDays.BackColor = System.Drawing.Color.Transparent;
             this.flDays.Location = new System.Drawing.Point(316, 128);
             this.flDays.Name = "flDays";
-            this.flDays.Size = new System.Drawing.Size(1026, 529);
+            this.flDays.Size = new System.Drawing.Size(1026, 880);
             this.flDays.TabIndex = 8;
             // 
             // btnPrevMonth
@@ -250,11 +250,11 @@ namespace LifelineNewBuild
             // 
             this.flUpcomingAct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(220)))), ((int)(((byte)(250)))));
             this.flUpcomingAct.ForeColor = System.Drawing.Color.Black;
-            this.flUpcomingAct.Location = new System.Drawing.Point(26, 171);
+            this.flUpcomingAct.Location = new System.Drawing.Point(17, 171);
             this.flUpcomingAct.Margin = new System.Windows.Forms.Padding(0);
             this.flUpcomingAct.Name = "flUpcomingAct";
             this.flUpcomingAct.Padding = new System.Windows.Forms.Padding(5);
-            this.flUpcomingAct.Size = new System.Drawing.Size(274, 486);
+            this.flUpcomingAct.Size = new System.Drawing.Size(274, 837);
             this.flUpcomingAct.TabIndex = 9;
             // 
             // btnNewAct
@@ -345,6 +345,7 @@ namespace LifelineNewBuild
             this.btnNewAct.TextMarginLeft = 0;
             this.btnNewAct.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnNewAct.UseDefaultRadiusAndThickness = true;
+            this.btnNewAct.Click += new System.EventHandler(this.btnNewAct_Click);
             // 
             // btnToday
             // 
@@ -434,6 +435,7 @@ namespace LifelineNewBuild
             this.btnToday.TextMarginLeft = 0;
             this.btnToday.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnToday.UseDefaultRadiusAndThickness = true;
+            this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // bunifuImageButton1
             // 
@@ -478,7 +480,7 @@ namespace LifelineNewBuild
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1362, 681);
+            this.ClientSize = new System.Drawing.Size(1368, 1032);
             this.Controls.Add(this.bunifuImageButton1);
             this.Controls.Add(this.btnToday);
             this.Controls.Add(this.flUpcomingAct);

@@ -4,13 +4,14 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using Bunifu.UI.WinForms;
 
 namespace LifelineNewBuild
 {
     public partial class Kalender : Form
     {
-        private List<FlowLayoutPanel> listFLDays = new List<FlowLayoutPanel>();
-        private List<FlowLayoutPanel> listFLActs = new List<FlowLayoutPanel>();
+        private List<BunifuPanel> listFLDays = new List<BunifuPanel>();
+        private List<BunifuPanel> listFLActs = new List<BunifuPanel>();
         private List<LinkLabel> listLabel = new List<LinkLabel>();
         private DateTime currentDate = DateTime.Today;
 
@@ -84,26 +85,10 @@ namespace LifelineNewBuild
 
                 if (startDate == DateTime.Today)
                 {
-                    listFLDays[(startDate.Day - 1) + (startDayAtFlNumber - 1)].BackColor = Color.DodgerBlue;
+                    listFLDays[(startDate.Day - 1) + (startDayAtFlNumber - 1)].BackColor = Color.FromArgb(59, 130, 246);
                 }
 
                 startDate = startDate.AddDays(DayInterval);
-            }
-        }
-
-        private void AddAppointmentToFlDay(DateTime startDate, int startDayAtFlNumber)
-        {
-            string date = startDate.ToString("dd-MM-yyyy");
-            DataRow[] query = activity.Select("act_date = '" + date + "'");
-            foreach (DataRow item in query)
-            {
-                DateTime appDay = startDate;
-                LinkLabel link = new LinkLabel();
-                link.Text = item["act_name"].ToString();
-                link.Click += new EventHandler(link_Clicked);
-                link.LinkColor = Color.Black;
-                listLabel.Add(link);
-                listFLDays[(appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);
             }
         }
 
@@ -122,15 +107,33 @@ namespace LifelineNewBuild
             }
         }
 
+        private void AddAppointmentToFlDay(DateTime startDate, int startDayAtFlNumber)
+        {
+            string date = startDate.ToString("dd-MM-yyyy");
+            DataRow[] query = activity.Select("act_date = '" + date + "'");
+            foreach (DataRow item in query)
+            {
+                DateTime appDay = startDate;
+                LinkLabel link = new LinkLabel();
+                link.Text = item["act_name"].ToString();
+                link.Click += new EventHandler(link_Clicked);
+                link.LinkColor = Color.Black;
+                link.Font = new Font("Segoe UI Semibold", 10);
+                link.TextAlign = ContentAlignment.MiddleCenter;
+                listLabel.Add(link);
+                listFLDays[(appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);
+            }
+        }
+
         private void GenerateDayPanel(int totalDays)
         {
             for (int i = 1; i <= totalDays; i++)
             {
-                FlowLayoutPanel fl = new FlowLayoutPanel();
+                BunifuPanel fl = new BunifuPanel();
                 fl.Name = $"flDay{i}";
-                fl.Size = new Size(136, 75);
+                fl.Size = new Size(136, 136);
                 fl.Margin = new Padding(5, 5, 5, 5);
-                fl.BorderStyle = BorderStyle.None;
+                fl.Padding = new Padding(5, 5, 5, 5);
                 flDays.Controls.Add(fl);
                 listFLDays.Add(fl);
             }
@@ -138,10 +141,10 @@ namespace LifelineNewBuild
 
         private void AddLabelDay(int StartDay, int totalDayInMonth)
         {
-            foreach (FlowLayoutPanel fl in listFLDays)
+            foreach (BunifuPanel fl in listFLDays)
             {
                 fl.Controls.Clear();
-                fl.BackColor = Color.Transparent;
+                fl.BackColor = Color.FromArgb(248, 250, 252);
             }
 
             for (int i = 1; i <= totalDayInMonth; i++)
@@ -149,14 +152,13 @@ namespace LifelineNewBuild
                 Label lbl = new Label();
                 lbl.Name = $"lblDay{i}";
                 lbl.AutoSize = false;
-                lbl.BackColor = Color.AliceBlue;
-                lbl.TextAlign = ContentAlignment.MiddleRight;
-                lbl.Margin = new Padding(0, 0, 0, 0);
+                lbl.TextAlign = ContentAlignment.MiddleLeft;
                 lbl.Size = new Size(136, 20);
                 lbl.Text = i.ToString();
-                listFLDays[(i - 1) + (StartDay - 1)].Controls.Add(lbl);
+                lbl.Font = new Font("Segoe UI Semibold", 10);
 
-                listFLDays[(i - 1) + (StartDay - 1)].BackColor = Color.LightSteelBlue;
+                listFLDays[(i - 1) + (StartDay - 1)].Controls.Add(lbl);
+                listFLDays[(i - 1) + (StartDay - 1)].BackColor = Color.FromArgb(209, 220, 250);
             }
         }
 
@@ -164,11 +166,10 @@ namespace LifelineNewBuild
         {
             for (int i = 1; i <= totalAct; i++)
             {
-                FlowLayoutPanel fl = new FlowLayoutPanel();
+                BunifuPanel fl = new BunifuPanel();
                 fl.Name = $"flDay{i}";
                 fl.Size = new Size(200, 75);
                 fl.Margin = new Padding(5, 5, 5, 5);
-                fl.BorderStyle = BorderStyle.None;
                 flUpcomingAct.Controls.Add(fl);
                 listFLActs.Add(fl);
             }
@@ -179,9 +180,10 @@ namespace LifelineNewBuild
             DataTable item = new DataTable();
             int k = 0;
 
-            foreach (FlowLayoutPanel fl in listFLActs)
+            foreach (BunifuPanel fl in listFLActs)
             {
                 fl.Controls.Clear();
+                fl.BackColor = Color.Transparent;
             }
 
             foreach (DataRow row in activity.Rows)
