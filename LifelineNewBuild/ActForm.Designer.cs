@@ -361,6 +361,7 @@ namespace LifelineNewBuild
             this.btnAct.TextMarginLeft = 0;
             this.btnAct.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnAct.UseDefaultRadiusAndThickness = true;
+            this.btnAct.Click += new System.EventHandler(this.btnAct_Click);
             // 
             // btnEdt
             // 

@@ -10,9 +10,8 @@ namespace LifelineNewBuild
 {
     public partial class Kalender : Form
     {
-        private List<BunifuPanel> listFLDays = new List<BunifuPanel>();
-        private List<BunifuPanel> listFLActs = new List<BunifuPanel>();
-        private List<LinkLabel> listLabel = new List<LinkLabel>();
+        private List<FlowLayoutPanel> listFLDays = new List<FlowLayoutPanel>();
+        private List<FlowLayoutPanel> listFLActs = new List<FlowLayoutPanel>();
         private DateTime currentDate = DateTime.Today;
 
         private NpgsqlDataReader dr;
@@ -74,7 +73,6 @@ namespace LifelineNewBuild
         {
             DateTime startDate = new DateTime(currentDate.Year, currentDate.Month, 1);
             DateTime endDate = startDate.AddMonths(1).AddDays(-1);
-            int DayInterval = 1;
 
             while (startDate <= endDate)
             {
@@ -85,10 +83,10 @@ namespace LifelineNewBuild
 
                 if (startDate == DateTime.Today)
                 {
-                    listFLDays[(startDate.Day - 1) + (startDayAtFlNumber - 1)].BackColor = Color.FromArgb(59, 130, 246);
+                    listFLDays[(startDate.Day - 1) + (startDayAtFlNumber - 1)].BackColor = Color.FromArgb(254, 249, 195);
                 }
 
-                startDate = startDate.AddDays(DayInterval);
+                startDate = startDate.AddDays(1);
             }
         }
 
@@ -107,33 +105,15 @@ namespace LifelineNewBuild
             }
         }
 
-        private void AddAppointmentToFlDay(DateTime startDate, int startDayAtFlNumber)
-        {
-            string date = startDate.ToString("dd-MM-yyyy");
-            DataRow[] query = activity.Select("act_date = '" + date + "'");
-            foreach (DataRow item in query)
-            {
-                DateTime appDay = startDate;
-                LinkLabel link = new LinkLabel();
-                link.Text = item["act_name"].ToString();
-                link.Click += new EventHandler(link_Clicked);
-                link.LinkColor = Color.Black;
-                link.Font = new Font("Arial", 10);
-                link.TextAlign = ContentAlignment.MiddleCenter;
-                listLabel.Add(link);
-                listFLDays[(appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);
-            }
-        }
-
         private void GenerateDayPanel(int totalDays)
         {
             for (int i = 1; i <= totalDays; i++)
             {
-                BunifuPanel fl = new BunifuPanel();
+                FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Name = $"flDay{i}";
                 fl.Size = new Size(136, 136);
-                fl.Margin = new Padding(5, 5, 5, 5);
-                fl.Padding = new Padding(5, 5, 5, 5);
+                fl.Margin = new Padding(5);
+                fl.Padding = new Padding(15);
                 flDays.Controls.Add(fl);
                 listFLDays.Add(fl);
             }
@@ -141,9 +121,10 @@ namespace LifelineNewBuild
 
         private void AddLabelDay(int StartDay, int totalDayInMonth)
         {
-            foreach (BunifuPanel fl in listFLDays)
+            foreach (FlowLayoutPanel fl in listFLDays)
             {
                 fl.Controls.Clear();
+                fl.BorderStyle = BorderStyle.None;
                 fl.BackColor = Color.FromArgb(248, 250, 252);
             }
 
@@ -155,10 +136,32 @@ namespace LifelineNewBuild
                 lbl.TextAlign = ContentAlignment.MiddleLeft;
                 lbl.Size = new Size(136, 20);
                 lbl.Text = i.ToString();
-                lbl.Font = new Font("Segoe UI Semibold", 10);
+                lbl.Font = new Font("Segoe UI Semibold", 12);
+                lbl.BackColor = Color.Transparent;
 
                 listFLDays[(i - 1) + (StartDay - 1)].Controls.Add(lbl);
-                listFLDays[(i - 1) + (StartDay - 1)].BackColor = Color.FromArgb(209, 220, 250);
+                listFLDays[(i - 1) + (StartDay - 1)].BackColor = Color.White;
+                listFLDays[(i - 1) + (StartDay - 1)].BorderStyle = BorderStyle.FixedSingle;
+            }
+        }
+
+        private void AddAppointmentToFlDay(DateTime startDate, int startDayAtFlNumber)
+        {
+            string date = startDate.ToString("dd-MM-yyyy");
+            DataRow[] query = activity.Select("act_date = '" + date + "'");
+            foreach (DataRow item in query)
+            {
+                DateTime appDay = startDate;
+                LinkLabel link = new LinkLabel();
+                link.Text = item["act_name"].ToString();
+                link.Click += new EventHandler(link_Clicked);
+                link.BackColor = Color.FromArgb(219, 234, 254);
+                link.Margin = new Padding(1);
+                link.Font = new Font("Segoe UI Semibold", 10);
+                link.ForeColor = Color.Black;
+                link.TextAlign = ContentAlignment.MiddleCenter;
+  
+                listFLDays[(appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);
             }
         }
 
@@ -166,10 +169,10 @@ namespace LifelineNewBuild
         {
             for (int i = 1; i <= totalAct; i++)
             {
-                BunifuPanel fl = new BunifuPanel();
+                FlowLayoutPanel fl = new FlowLayoutPanel();
                 fl.Name = $"flDay{i}";
-                fl.Size = new Size(200, 75);
-                fl.Margin = new Padding(5, 5, 5, 5);
+                fl.Size = new Size(250, 100);
+                fl.Margin = new Padding(5);
                 flUpcomingAct.Controls.Add(fl);
                 listFLActs.Add(fl);
             }
@@ -180,10 +183,11 @@ namespace LifelineNewBuild
             DataTable item = new DataTable();
             int k = 0;
 
-            foreach (BunifuPanel fl in listFLActs)
+            foreach (FlowLayoutPanel fl in listFLActs)
             {
                 fl.Controls.Clear();
                 fl.BackColor = Color.Transparent;
+                fl.BorderStyle = BorderStyle.None;
             }
 
             foreach (DataRow row in activity.Rows)
@@ -192,20 +196,38 @@ namespace LifelineNewBuild
                 int[] date_int = Array.ConvertAll(date, int.Parse);
 
                 DateTime date_date = new DateTime(date_int[2], date_int[1], date_int[0]);
-                if (date_date >= currentDate && k < 4)
+                if (date_date >= currentDate && k <= 7)
                 {
                     LinkLabel link = new LinkLabel();
                     link.Text = row["act_name"].ToString();
                     link.Click += new EventHandler(link_Clicked);
                     link.LinkColor = Color.Black;
-                    listLabel.Add(link);
+                    link.Size = new Size(240, 25);
+                    link.Font = new Font("Segoe UI", 12, FontStyle.Bold);
 
                     Label txtbx_date = new Label();
-                    txtbx_date.Text = row["act_date"].ToString();
+                    txtbx_date.Text = "deadline : " + row["act_date"].ToString();
+                    txtbx_date.ForeColor = Color.Black;
+                    txtbx_date.Size = new Size(240, 25);
+                    txtbx_date.Font = new Font("Segoe UI Semibold", 10);
+
+                    Label txtbx_desc = new Label();
+                    txtbx_desc.Text = "desc : " + row["act_desc"].ToString();
+                    txtbx_desc.ForeColor = Color.Black;
+                    txtbx_desc.Size = new Size(240, 35);
+                    txtbx_desc.Font = new Font("Segoe UI Semibold", 10);
+
+                    Label txtbx_color = new Label();
+                    txtbx_color.Size = new Size(250, 15);
+                    txtbx_color.Margin = new Padding(-10);
+                    txtbx_color.BackColor = Color.FromArgb(59, 130, 246);
 
                     listFLActs[k].BackColor = Color.White;
+                    listFLActs[k].BorderStyle = BorderStyle.FixedSingle;
                     listFLActs[k].Controls.Add(link);
                     listFLActs[k].Controls.Add(txtbx_date);
+                    listFLActs[k].Controls.Add(txtbx_desc);
+                    listFLActs[k].Controls.Add(txtbx_color);
 
                     k++;
                 }

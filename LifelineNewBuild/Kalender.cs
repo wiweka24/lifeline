@@ -32,7 +32,7 @@ namespace LifelineNewBuild
         private void Kalender_Load(object sender, EventArgs e)
         {
             GenerateDayPanel(42);
-            GenerateUpcomingActPanel(4);
+            GenerateUpcomingActPanel(7);
             DisplayCurrentDate();
         }
 
@@ -73,7 +73,9 @@ namespace LifelineNewBuild
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Hide();
+            LoginForm logout = new LoginForm();
+            logout.ShowDialog();
         }
     }
 }
