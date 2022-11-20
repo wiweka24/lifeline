@@ -16,6 +16,7 @@ namespace LifelineNewBuild
         private DataTable user;
         private string userID;
         private string username;
+        private string password;
 
         public LoginForm()
         {
@@ -62,10 +63,10 @@ namespace LifelineNewBuild
                 Kalender cal = new Kalender(userID, username);
                 cal.ShowDialog();
             }
-            else
-            {
-                MessageBox.Show("Username tidak Ditemukan");
-            }
+            //else
+            //{
+            //    MessageBox.Show("Username tidak Ditemukan");
+            //}
         }
 
         private void signBtn_Click(object sender, EventArgs e)
@@ -83,35 +84,23 @@ namespace LifelineNewBuild
             {
                 userID = user_query[0]["user_id"].ToString();
                 username = user_query[0]["user_name"].ToString();
-                string password = user_query[0]["user_password"].ToString();
-
-                if (username == "" || username == null)
+                password = user_query[0]["user_password"].ToString();
+                
+                if (password != tbPassword.Text || password == null)
                 {
-                    MessageBox.Show("Username tidak Ditemukan");
+                    MessageBox.Show("Password yang dimasukkan salah!");
                     return 1;
-                }
-                else
-                {
-                    if (password != tbPassword.Text || password == null)
-                    {
-                        MessageBox.Show("Password yang Dimasukkan Salah");
-                        return 1;
-                    }
-                    else
-                    {
-                        return 0;
-                    }
                 }
             }
             else
             {
-                //userID = null;
-                //username = null;
-                //string password = null;
-                return 1;
+                if (username == "" || username == null)
+                {
+                    MessageBox.Show("Username tidak ditemukan!");
+                    return 1;
+                }
             }
-
-            //username = user_query[0]["user_name"].ToString();
+            return 0;
         }
 
         private void loginBtn_KeyDown(object sender, KeyEventArgs e)
