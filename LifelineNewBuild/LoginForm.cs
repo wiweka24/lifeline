@@ -2,7 +2,9 @@ using LifelineNewBuild.Controller;
 using Npgsql;
 using System;
 using System.Data;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace LifelineNewBuild
 {
@@ -60,6 +62,10 @@ namespace LifelineNewBuild
                 Kalender cal = new Kalender(userID, username);
                 cal.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Username tidak Ditemukan");
+            }
         }
 
         private void signBtn_Click(object sender, EventArgs e)
@@ -73,26 +79,46 @@ namespace LifelineNewBuild
         private int CheckUser()
         {
             DataRow[] user_query = user.Select("user_name = '" + tbUsername.Text + "'");
-            userID = user_query[0]["user_id"].ToString();
-            username = user_query[0]["user_name"].ToString();
-            string password = user_query[0]["user_password"].ToString();
-            
-            if (username == "")
+            if (user_query.Length > 0)
             {
-                MessageBox.Show("Username tidak Ditemukan");
-                return 1;
-            }
-            else
-            {
-                if (password != tbPassword.Text)
+                userID = user_query[0]["user_id"].ToString();
+                username = user_query[0]["user_name"].ToString();
+                string password = user_query[0]["user_password"].ToString();
+
+                if (username == "" || username == null)
                 {
-                    MessageBox.Show("Password yang Dimasukkan Salah");
+                    MessageBox.Show("Username tidak Ditemukan");
                     return 1;
                 }
                 else
                 {
-                    return 0;
+                    if (password != tbPassword.Text || password == null)
+                    {
+                        MessageBox.Show("Password yang Dimasukkan Salah");
+                        return 1;
+                    }
+                    else
+                    {
+                        return 0;
+                    }
                 }
+            }
+            else
+            {
+                //userID = null;
+                //username = null;
+                //string password = null;
+                return 1;
+            }
+
+            //username = user_query[0]["user_name"].ToString();
+        }
+
+        private void loginBtn_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                loginBtn_Click(sender, e);
             }
         }
     }

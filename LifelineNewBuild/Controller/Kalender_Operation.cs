@@ -118,7 +118,7 @@ namespace LifelineNewBuild
                 link.Text = item["act_name"].ToString();
                 link.Click += new EventHandler(link_Clicked);
                 link.LinkColor = Color.Black;
-                link.Font = new Font("Segoe UI Semibold", 10);
+                link.Font = new Font("Arial", 10);
                 link.TextAlign = ContentAlignment.MiddleCenter;
                 listLabel.Add(link);
                 listFLDays[(appDay.Day - 1) + (startDayAtFlNumber - 1)].Controls.Add(link);

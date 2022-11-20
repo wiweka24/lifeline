@@ -16,7 +16,7 @@ namespace LifelineNewBuild
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Kalender());
+            Application.Run(new LoginForm());
         }
     }
 }
