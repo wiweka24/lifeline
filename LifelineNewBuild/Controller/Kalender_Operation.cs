@@ -57,7 +57,7 @@ namespace LifelineNewBuild
             InitializeConnection();
             GetActivityTable();
 
-            lblMonthAndYear.Text = currentDate.ToString("MMMM, yyyy");
+            lblMonthAndYear.Text = currentDate.ToString("MMMM yyyy");
             int firstDayAtFlNumber = GetFirstDayOfWeekOfCurrentDate();
             int totalDay = GetTotalDaysOfCurrentDate();
 
