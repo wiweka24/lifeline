@@ -93,7 +93,6 @@ namespace LifelineNewBuild
         private void LinkOpenAct(object sender)
         {
             LinkLabel link = sender as LinkLabel;
-            link.LinkVisited = true;
             string actName = link.Text;
 
             DataRow[] query = activity.Select("act_name = '" + actName + "'");
@@ -154,7 +153,7 @@ namespace LifelineNewBuild
                 DateTime appDay = startDate;
                 LinkLabel link = new LinkLabel();
                 link.Text = item["act_name"].ToString();
-                link.Click += new EventHandler(link_Clicked);
+                link.Click += new EventHandler(link_Click);
                 link.BackColor = Color.FromArgb(219, 234, 254);
                 link.Margin = new Padding(1);
                 link.Font = new Font("Segoe UI Semibold", 10);
@@ -200,7 +199,7 @@ namespace LifelineNewBuild
                 {
                     LinkLabel link = new LinkLabel();
                     link.Text = row["act_name"].ToString();
-                    link.Click += new EventHandler(link_Clicked);
+                    link.Click += new EventHandler(link_Click);
                     link.LinkColor = Color.Black;
                     link.Size = new Size(240, 25);
                     link.Font = new Font("Segoe UI", 12, FontStyle.Bold);

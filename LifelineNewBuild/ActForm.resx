@@ -161,11 +161,11 @@
   </metadata>
   <data name="tbDesk.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAOQAAAApCAYAAAAlIYXnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVHhe7dMxDQMxAARB80fll2EERgDkZclNEHiLGema
-        63cAMWutz5zzZ2Z3ths8OY6xD+Ce3eDJUZBwmyAhRJAQIkgIESSECBJCBAkhgoQQQUKIICFEkBAiSAgR
-        JIQIEkIECSGChBBBQoggIUSQECJICBEkhAgSQgQJIYKEEEFCiCAhRJAQIkgIESSECBJCBAkhgoQQQUKI
-        ICFEkBAiSAj5C/J5nu8+zOzOdoMnR6BhjBdxZLGUPBAzygAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAPoAAAApCAYAAAAcRjS8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVHhe7dOxCQMxAARB9V+VHpXhMlyAH4ESt6CdgUsu
+        3wFErLU+c86fmd213fbJfIx9APfZbZ/MhQ63EjoECB0ChA4BQocAoUOA0CFA6BAgdAgQOgQIHQKEDgFC
+        hwChQ4DQIUDoECB0CBA6BAgdAoQOAUKHAKFDgNAhQOgQIHQIEDoECB0ChA4BQocAoUOA0CFA6BAgdAgQ
+        OgQIHQKEDgF/oT/P892Hmd213fbJHLjbGC+6H+xzPe8CRwAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="tbNama.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -173,11 +173,11 @@
   </metadata>
   <data name="tbNama.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAOQAAAApCAYAAAAlIYXnAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVHhe7dMxDQMxAARB80fll2EERgDkZclNEHiLGema
-        63cAMWutz5zzZ2Z3ths8OY6xD+Ce3eDJUZBwmyAhRJAQIkgIESSECBJCBAkhgoQQQUKIICFEkBAiSAgR
-        JIQIEkIECSGChBBBQoggIUSQECJICBEkhAgSQgQJIYKEEEFCiCAhRJAQIkgIESSECBJCBAkhgoQQQUKI
-        ICFEkBAiSAj5C/J5nu8+zOzOdoMnR6BhjBdxZLGUPBAzygAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAPoAAAApCAYAAAAcRjS8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACzSURBVHhe7dOxCQMxAARB9V+VHpXhMlyAH4ESt6CdgUsu
+        3wFErLU+c86fmd213fbJfIx9APfZbZ/MhQ63EjoECB0ChA4BQocAoUOA0CFA6BAgdAgQOgQIHQKEDgFC
+        hwChQ4DQIUDoECB0CBA6BAgdAoQOAUKHAKFDgNAhQOgQIHQIEDoECB0ChA4BQocAoUOA0CFA6BAgdAgQ
+        OgQIHQKEDgF/oT/P892Hmd213fbJHLjbGC+6H+xzPe8CRwAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnAct.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
